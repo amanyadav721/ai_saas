@@ -1,0 +1,17 @@
+.snav{
+   display: none;
+
+}
+/* For medium screens and above */
+@media (min-width: 768px) {
+    .snav {
+      width: 16rem; 
+      display: block;
+      position: fixed;
+    }
+    .main{
+        margin-left: 16rem;
+    }
+  }
+  
+ 
