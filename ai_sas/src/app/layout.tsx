@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+import { ClerkProvider, RedirectToSignIn } from "@clerk/nextjs";
+import { Metadata } from "next";
 import "./globals.css";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,10 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          {/* Check if user is authenticated */}
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
