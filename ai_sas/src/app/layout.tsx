@@ -1,7 +1,9 @@
 import { ClerkProvider } from "@clerk/nextjs";
+import {Outfit} from "next/font/google"
 import { Metadata } from "next";
 import "./globals.css";
 
+const outfit = Outfit({subsets:["latin"]})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
+        <body className={outfit.className}>
           {/* Check if user is authenticated */}
           {children}
         </body>

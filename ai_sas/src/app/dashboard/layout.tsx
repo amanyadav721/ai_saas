@@ -11,8 +11,12 @@ export default function dashboardLayout({
     return (
         <>
         <div className={styles.snav}><SideNav/></div>
-        {/* <div><Header/></div> */}
-       <div className={styles.main}> {children} </div>
+       
+       <div className={styles.main}>
+        <Header/>
+         {children} </div>
         </>
     )
 }
+// className={styles.snav}
+// className={styles.main}
