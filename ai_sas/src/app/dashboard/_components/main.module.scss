@@ -79,6 +79,7 @@
   background-color: black;
   border: 2px solid white;
   border-radius: 10px;
+  color:white;
 }
 }
 
@@ -112,13 +113,13 @@
     gap:10px;
     width: 40%;
     .search{
-      background-color: transparent;
-      border:2px solid white;
+      background-color: black ;
+      border:0.5px solid white;
       outline: none;
       height: 20%;
       border-radius: 10px;
       width: 100%;
-      color: black;
+      color: white;
       padding: 2%;
 
     }
