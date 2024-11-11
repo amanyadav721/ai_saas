@@ -2,11 +2,12 @@
     height: 100vh;            // Equivalent to h-screen
     padding: 1.25rem;         // Equivalent to p-5
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); // Equivalent to shadow-sm
-    border: 2px solid black; // Equivalent to border (default Tailwind border color)
+    border: 1px solid black; // Equivalent to border (default Tailwind border color)
+    color:white;
     .logo{
         display: flex;
         justify-content: center;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid white;
         padding-bottom: 2rem;
 
     }
@@ -30,14 +31,14 @@
       
       .listItem:hover {
         cursor: pointer;
-        background-color: blue;         /* Hover background color for each item */
-        color: white;                   /* Hover text color for each item */
+        background-color: white;         /* Hover background color for each item */
+        color: black;                   /* Hover text color for each item */
       }
       
 
       .active {
-        background-color: blue;  /* Static background color for active item */
-        color: white;            /* Static text color for active item */
+        background-color: white;  /* Static background color for active item */
+        color: black;            /* Static text color for active item */
       }
 
 }
@@ -46,7 +47,8 @@
 .HeaderContainer{
   display: flex;
   justify-content: space-between;
-
+  background-color: black;
+  color:white;
 
 .HeaderMain{
   display: flex;                /* Sets the element as a flex container */
@@ -58,17 +60,25 @@
   max-width: 28rem;
   margin-top: 10px;
   margin-left: 5px;
+  background-color: black;
+
 
 }
 .Membership{
-  background-color: yellow;
-  border: 1px solid black;
+  background-color: transparent;
+  border: 1px solid white;
   max-width: 15rem;
   border-radius: 20px;
   margin-top:10px;
   padding: 5px;
   margin-right: 10px;
+  color: white;
 
+}
+.searchHeader{
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 10px;
 }
 }
 
@@ -81,7 +91,9 @@
   align-items: center;
   margin-top: 2rem;
   padding: 20px;
-  background-image: linear-gradient(to right, blue , yellow);
+  // background-image: linear-gradient( black, grey);
+  background-color: black;
+  box-shadow: 2px 1px 2px 1px grey;
   color:white;
   margin-left: 5px;
   margin-right: 10px;
@@ -100,7 +112,8 @@
     gap:10px;
     width: 40%;
     .search{
-      background-color: white;
+      background-color: transparent;
+      border:2px solid white;
       outline: none;
       height: 20%;
       border-radius: 10px;
@@ -121,6 +134,8 @@
   gap: 1.25rem; /* gap-5 */
   align-items: stretch; /* Makes sure all items stretch to equal height */
   padding: 10px;
+  background-color: black;
+  color:white;
 }
 
 .tempcard > div {
@@ -128,13 +143,16 @@
   flex-direction: column;
   justify-content: space-between; /* Ensures equal distribution of content */
   height: 100%; /* Makes sure the child div takes full height of the grid cell */
+  background-color: black;
+  color:white;
 }
 
 .card {
   padding: 1.25rem; /* Equivalent to p-5 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
-  border: 1px solid #e5e7eb; /* Equivalent to border */
-  background-color: #ffffff; /* Equivalent to bg-white */
+  border: 1px solid grey; /* Equivalent to border */
+  background-color: black;
+  color:white;
   display: flex; /* Equivalent to flex */
   flex-direction: column; /* Equivalent to flex-col */
   gap: 0.75rem; /* Equivalent to gap-3 */
@@ -142,6 +160,12 @@
   flex-grow: 1; /* Ensures card stretches to fill the available height */
   display: flex; /* Ensures it behaves as a flex container */
   flex-direction: column; /* Stacks content vertically */
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.1);
+    background-color: black;
+    color:white;
+  }
 }
 
 @media (min-width: 768px) { /* md: breakpoint */
