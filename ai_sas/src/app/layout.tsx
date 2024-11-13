@@ -3,6 +3,7 @@ import {Outfit} from "next/font/google"
 import { Metadata } from "next";
 import "./globals.css";
 
+
 const outfit = Outfit({subsets:["latin"]})
 
 export const metadata: Metadata = {

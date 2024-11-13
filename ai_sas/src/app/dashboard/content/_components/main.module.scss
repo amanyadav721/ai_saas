@@ -1,0 +1,58 @@
+.FormSection {
+    padding: 1.25rem;         /* equivalent to p-5 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* equivalent to shadow-md */
+    border: 1px solid #e5e7eb; /* equivalent to border (Tailwind's default light gray) */
+    border-radius: 0.5rem;     /* equivalent to rounded-lg */
+    
+    h1 {
+      font-size: xx-large;
+      color: purple;
+      font-weight: bolder;
+    }
+  
+    p {
+      font-size: 10px;
+    }
+  
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    button {
+      margin-top: 1%;
+      width: 100%;
+      background-color: purple;
+      border-radius: 20px;
+    }
+  
+    /* Responsive Styles */
+    @media (max-width: 1024px) { /* Tablet screens */
+      padding: 1rem; /* Reduce padding on tablet */
+      
+      h1 {
+        font-size: large; /* Adjust h1 size for smaller screens */
+      }
+      
+      p {
+        font-size: 12px; /* Slightly larger text on tablets */
+      }
+    }
+  
+    @media (max-width: 768px) { /* Mobile screens */
+      padding: 0.75rem; /* Even smaller padding on mobile */
+      
+      h1 {
+        font-size: medium; /* Further reduce font size for mobile */
+      }
+      
+      p {
+        font-size: 12px; /* Keep paragraph text legible on mobile */
+      }
+  
+      button {
+        font-size: 0.875rem; /* Adjust button size on mobile */
+      }
+    }
+  }
+  
