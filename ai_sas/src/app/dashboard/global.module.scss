@@ -1,6 +1,6 @@
 .snav{
    display: none;
-   background-color: black;
+   background-color: white;
 
 }
 /* For medium screens and above */
@@ -9,13 +9,13 @@
       width: 16rem; 
       display: block;
       position: fixed;
-      background-color: black;
-      color:white;
+      background-color: white;
+      color:black;
     }
     .main{
         margin-left: 16rem;
-        background-color: black;
-        color: white;
+        background-color: white;
+        color:black;
     }
   }
   

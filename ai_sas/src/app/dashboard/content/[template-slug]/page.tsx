@@ -33,9 +33,8 @@ export default function CreateContend(props:PROPS){
          selectedTemplate={selectedTemplate}
          userForminput={(v:any)=>{GenerateAicontent(v)}}
           />
-         <div className={styles.outputSection}>
+         
          <OutputSection />
-         </div>
          </div>
         </>
     )
