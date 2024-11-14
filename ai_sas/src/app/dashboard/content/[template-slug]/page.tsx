@@ -7,6 +7,8 @@ import styles from "./content.module.scss";
 import { generateKey } from "crypto";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Model } from "../../../../../utils/Aimodal";
+import { useEffect, useState } from "react";
 interface PROPS{
     params:{
       "template-slug":string 
@@ -14,10 +16,20 @@ interface PROPS{
     
 }
 export default function CreateContend(props:PROPS){
+    const [loading, setLoading] = useState(false);
 
-    const GenerateAicontent=(FormData:any)=>{
 
-    }
+    const GenerateAicontent = async (FormData: any) => {
+        setLoading(true)
+        const selectedPrompt = selectedTemplate?.aiPrompt;
+        const FinalAiprompt = `${JSON.stringify(FormData)} ${selectedPrompt}`; // Ensure this is a string
+        console.log('FinalAiprompt:', FinalAiprompt); // Debugging log
+        const result = await Model(FinalAiprompt);
+        console.log(result.choices[0]?.message?.content || "");
+        
+        setLoading(false)
+      };
+      
     const selectedTemplate: TEMPELATE | undefined = Template.find(
         (item) => item.slug === props.params["template-slug"]
       );
@@ -32,6 +44,7 @@ export default function CreateContend(props:PROPS){
          <FormSection 
          selectedTemplate={selectedTemplate}
          userForminput={(v:any)=>{GenerateAicontent(v)}}
+         loading={loading}
           />
          
          <OutputSection />

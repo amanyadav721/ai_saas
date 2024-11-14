@@ -5,13 +5,15 @@ import styles from "./main.module.scss"
 import Image from "next/image";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { Loader2Icon } from "lucide-react";
 
 interface PROPS{
     selectedTemplate?:TEMPELATE,
-    userForminput:any
+    userForminput:any,
+    loading:boolean,
 }
 
-export default function FormSection({selectedTemplate, userForminput}:PROPS){
+export default function FormSection({selectedTemplate, userForminput, loading}:PROPS){
     const [formData,setFormData] = useState<any>()
     const handleChange = (event:any) =>{
         const {name,value} = event.target;
@@ -42,7 +44,10 @@ export default function FormSection({selectedTemplate, userForminput}:PROPS){
                     }
                 </div>
             ))}
-            <button type="submit">Generate Content</button>
+            <button type="submit" disabled={loading}>
+                {loading&&<Loader2Icon/>}
+                Generate Content
+                </button>
         </form>
 
     </div>
