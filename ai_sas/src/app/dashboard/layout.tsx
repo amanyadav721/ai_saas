@@ -10,6 +10,7 @@ export default function dashboardLayout({
   }>){
     return (
         <>
+
         <div className={styles.snav}><SideNav/></div>
        
        <div className={styles.main}>

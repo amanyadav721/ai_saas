@@ -9,6 +9,12 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Model } from "../../../../../utils/Aimodal";
 import { useEffect, useState } from "react";
+import { format } from "path";
+import { db } from "../../../../../utils/db";
+import { Aioutput } from "../../../../../utils/schema";
+import { useUser } from "@clerk/nextjs";
+import moment from 'moment';
+
 interface PROPS{
     params:{
       "template-slug":string 
@@ -17,6 +23,8 @@ interface PROPS{
 }
 export default function CreateContend(props:PROPS){
     const [loading, setLoading] = useState(false);
+    const [aioutput,setAioutput] = useState<string>('')
+    const {user} = useUser();
 
 
     const GenerateAicontent = async (FormData: any) => {
@@ -25,10 +33,25 @@ export default function CreateContend(props:PROPS){
         const FinalAiprompt = `${JSON.stringify(FormData)} ${selectedPrompt}`; // Ensure this is a string
         console.log('FinalAiprompt:', FinalAiprompt); // Debugging log
         const result = await Model(FinalAiprompt);
-        console.log(result.choices[0]?.message?.content || "");
-        
+        setAioutput(result.choices[0]?.message?.content || "");
+        // console.log(result.choices[0]?.message?.content || "");
+        await SaveInDb(FormData,selectedTemplate?.slug,result.choices[0]?.message?.content || "")
         setLoading(false)
       };
+    
+    const SaveInDb = async(formData:any,slug:any,aiResp:any)=>{
+       // @ts-ignore
+            const result = await db.insert(Aioutput).values({
+              formData:formData,
+              templateSlug:slug,
+              aiResponse:aiResp,
+              createdBy:user?.primaryEmailAddress?.emailAddress,
+              createdAt:moment().format('DD/MM/YYYY'), 
+
+            })
+            console.log(result)
+    }
+ 
       
     const selectedTemplate: TEMPELATE | undefined = Template.find(
         (item) => item.slug === props.params["template-slug"]
@@ -47,7 +70,7 @@ export default function CreateContend(props:PROPS){
          loading={loading}
           />
          
-         <OutputSection />
+         <OutputSection aioutput={aioutput}/>
          </div>
         </>
     )

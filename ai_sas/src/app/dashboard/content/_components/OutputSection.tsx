@@ -3,14 +3,20 @@
 import '@toast-ui/editor/dist/toastui-editor.css';
 import styles from "./main.module.scss";
 import { Copy } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Editor } from '@toast-ui/react-editor';
 
 // Dynamically import the Editor component from toast-ui/react-editor
 // const Editor = dynamic(() => import('@toast-ui/react-editor').then(mod => mod.Editor), { ssr: false });
-
-export default function OutputSection() {
+interface PROPS{
+  aioutput:string;
+}
+export default function OutputSection({aioutput}:PROPS) {
   const editorRef:any = useRef();
+  useEffect(()=>{
+      const editorInstance = editorRef.current.getInstance();
+      editorInstance.setMarkdown(aioutput);
+  },[aioutput])
 
   return (
     <div className={styles.OutputSection}>

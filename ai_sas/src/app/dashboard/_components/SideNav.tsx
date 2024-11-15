@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./main.module.scss"
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import Creditusage from "./CreditUsage";
 
 export default function SideNav(){
   const path = usePathname();
@@ -50,7 +51,10 @@ export default function SideNav(){
         </div>
         ))}
       </div>
-
+      <div>
+        <Creditusage/>
+      </div>
+      
         </div>
         </>
     )

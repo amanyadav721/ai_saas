@@ -66,7 +66,7 @@
 }
 .Membership{
   background-color:transparent;
-  border: 1px solid white;
+  border: 1px solid gray;
   max-width: 15rem;
   border-radius: 20px;
   margin-top:10px;
@@ -180,3 +180,66 @@
     grid-template-columns: repeat(4, 1fr); /* grid-cols-4 */
   }
 }
+
+
+// Credit Usage
+
+.Credit {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.progressBar {
+  position: relative;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  background-color: #3498db;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.percentage {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: bold;
+}
+.Upgrade{
+  button{
+    background-color: white;
+    color:black;
+    padding: 5%;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    font-size: larger;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+  }
+  button:hover{
+    scale:20px
+  }
+}
+
+
