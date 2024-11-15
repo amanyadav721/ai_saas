@@ -1,10 +1,11 @@
 "use client"
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./main.module.scss";
 import { useUser } from "@clerk/nextjs";
 import { db } from "../../../../utils/db";
 import { Aioutput } from "../../../../utils/schema";
 import {eq} from 'drizzle-orm';
+import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 
 
 interface HISTORY{
@@ -18,15 +19,13 @@ interface HISTORY{
 export default  function Creditusage () {
   
   const totalCredits = 10000; // Total user credits
-  const [wordsUsed,setwordUsed] = useState<number>(0); // Words used
+  const {wordsUsed,setwordUsed} = useContext<any>(TotalUsageContext); // Words used
   const {user} = useUser();
+  
   
   const getData = async()=>{
     // @ts-ignore
-    const result: HISTORY[] = await db
-    .select()
-    .from(Aioutput)
-    .where(eq(Aioutput.createdBy, user?.primaryEmailAddress?.emailAddress));
+    const result: HISTORY[] = await db.select().from(Aioutput).where(eq(Aioutput.createdBy, user?.primaryEmailAddress?.emailAddress));
 
      getTotal(result)
 

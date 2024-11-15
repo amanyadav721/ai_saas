@@ -31,14 +31,14 @@
       
       .listItem:hover {
         cursor: pointer;
-        background-color: white;         /* Hover background color for each item */
-        color: black;                   /* Hover text color for each item */
+        background-color: purple;         /* Hover background color for each item */
+        color: white;                   /* Hover text color for each item */
       }
       
 
       .active {
-        background-color: white;  /* Static background color for active item */
-        color: black;            /* Static text color for active item */
+        background-color: purple;  /* Static background color for active item */
+        color: white;            /* Static text color for active item */
       }
 
 }

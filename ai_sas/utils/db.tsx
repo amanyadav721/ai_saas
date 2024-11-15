@@ -4,4 +4,4 @@ import * as schema from './schema';
 
 
 
-export const db = drizzle(process.env.NEXT_PUBLIC_DATABASE_NEON_URL);
+export const db = drizzle(process.env.NEXT_PUBLIC_DATABASE_NEON_URL,schema);

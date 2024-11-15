@@ -5,6 +5,7 @@ import styles from "./main.module.scss"
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Creditusage from "./CreditUsage";
+import Link from "next/link";
 
 export default function SideNav(){
   const path = usePathname();

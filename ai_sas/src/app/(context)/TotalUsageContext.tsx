@@ -1,2 +1,2 @@
 import { createContext,  } from "react";
-export const  totalCredits= createContext<any>(0);
+export const  TotalUsageContext= createContext<any>(0);

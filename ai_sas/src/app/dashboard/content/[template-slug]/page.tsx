@@ -4,16 +4,16 @@ import { TEMPELATE } from "../../_components/Template";
 import FormSection from "../_components/FormSection";
 import OutputSection from "../_components/OutputSection";
 import styles from "./content.module.scss";
-import { generateKey } from "crypto";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CircleX, Recycle } from "lucide-react";
 import { Model } from "../../../../../utils/Aimodal";
-import { useEffect, useState } from "react";
-import { format } from "path";
+import { useContext, useState } from "react";
 import { db } from "../../../../../utils/db";
 import { Aioutput } from "../../../../../utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from 'moment';
+import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
+import { useRouter } from "next/navigation";
 
 interface PROPS{
     params:{
@@ -25,9 +25,18 @@ export default function CreateContend(props:PROPS){
     const [loading, setLoading] = useState(false);
     const [aioutput,setAioutput] = useState<string>('')
     const {user} = useUser();
+    const router = useRouter()
+    const {wordsUsed,setwordUsed} = useContext<any>(TotalUsageContext); // Words used
+    const [showPopup, setShowPopup] = useState(false);
+
 
 
     const GenerateAicontent = async (FormData: any) => {
+      if(wordsUsed >=10000)
+      {
+        setShowPopup(true); 
+        return;
+      }
         setLoading(true)
         const selectedPrompt = selectedTemplate?.aiPrompt;
         const FinalAiprompt = `${JSON.stringify(FormData)} ${selectedPrompt}`; // Ensure this is a string
@@ -38,6 +47,9 @@ export default function CreateContend(props:PROPS){
         await SaveInDb(FormData,selectedTemplate?.slug,result.choices[0]?.message?.content || "")
         setLoading(false)
       };
+    const handleNavigation = () =>{
+      router.push('/dashboard/billing')
+    }
     
     const SaveInDb = async(formData:any,slug:any,aiResp:any)=>{
        // @ts-ignore
@@ -72,6 +84,21 @@ export default function CreateContend(props:PROPS){
          
          <OutputSection aioutput={aioutput}/>
          </div>
+         {/* Popup Component */}
+         {showPopup && (
+        <div className={styles.PopupOverlay}>
+          <div className={styles.Popup}>
+            {/* Close Icon */}
+            <div className={styles.PopHeader}>
+              <button onClick={() => setShowPopup(false)}><CircleX color="black"/></button> 
+            </div>
+         
+            <h2>Limit Reached</h2>
+            <p>You have reached the word limit of 10,000. Upgrade for more.</p>
+            <button onClick={() => handleNavigation()}>Upgrade</button>
+          </div>
+        </div>
+      )}
         </>
     )
 }

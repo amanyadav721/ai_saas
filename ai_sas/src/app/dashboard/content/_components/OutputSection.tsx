@@ -22,7 +22,7 @@ export default function OutputSection({aioutput}:PROPS) {
     <div className={styles.OutputSection}>
       <div className={styles.editArea}>
         <h2>Your Result</h2>
-        <button><Copy /> Copy</button>
+        <button onClick={()=>navigator.clipboard.writeText(aioutput)}><Copy /> Copy</button>
       </div>
       <Editor
         ref={editorRef}

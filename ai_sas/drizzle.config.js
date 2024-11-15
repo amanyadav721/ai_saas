@@ -6,6 +6,6 @@ export default defineConfig({
   schema: './utils/schema.tsx',
   dialect: 'postgresql',
   dbCredentials: {
-    url:"postgresql://neondb_owner:MifOAry9H8tv@ep-rough-dawn-a510t23t.us-east-2.aws.neon.tech/ai_social_media_saas?sslmode=require",
+    url:NEXT_PUBLIC_DATABASE_NEON_URL,
   },
 });
