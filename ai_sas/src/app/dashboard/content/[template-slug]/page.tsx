@@ -6,14 +6,15 @@ import OutputSection from "../_components/OutputSection";
 import styles from "./content.module.scss";
 import Link from "next/link";
 import { ArrowLeft, CircleX, Recycle } from "lucide-react";
-import { Model } from "../../../../../utils/Aimodal";
+import { Model } from "../../../../utils/Aimodal";
 import { useContext, useState } from "react";
-import { db } from "../../../../../utils/db";
-import { Aioutput } from "../../../../../utils/schema";
+import { db } from "../../../../utils/db";
+import { Aioutput } from "../../../../utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from 'moment';
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { useRouter } from "next/navigation";
+import { UserSubscriptionContext } from "@/app/(context)/UserSubscription";
 
 interface PROPS{
     params:{
@@ -28,11 +29,12 @@ export default function CreateContend(props:PROPS){
     const router = useRouter()
     const {wordsUsed,setwordUsed} = useContext<any>(TotalUsageContext); // Words used
     const [showPopup, setShowPopup] = useState(false);
+    const {userSubscription,setUserSubscription} = useContext<any>(UserSubscriptionContext)
 
 
 
     const GenerateAicontent = async (FormData: any) => {
-      if(wordsUsed >=10000)
+      if(wordsUsed >=10000 && !userSubscription)
       {
         setShowPopup(true); 
         return;

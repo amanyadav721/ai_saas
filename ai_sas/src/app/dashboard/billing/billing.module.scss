@@ -35,6 +35,15 @@
           font-size: 16px;
           color: #777;
         }
+        button{
+          text-align: center;
+          padding: 10px;
+          color:white;
+          background-color: purple;
+          margin-top: 10px;
+          border-radius: 10px;
+          
+        }
   
         &:hover {
           border-color: #0070f3;
@@ -51,5 +60,20 @@
         }
       }
     }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    .loaderspin {
+      display: inline-block; /* Ensures proper alignment */
+      animation: spin 1s linear infinite;
+    }
+    
   }
   

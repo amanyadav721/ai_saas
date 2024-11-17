@@ -6,6 +6,6 @@ export default defineConfig({
   schema: './utils/schema.tsx',
   dialect: 'postgresql',
   dbCredentials: {
-    url:NEXT_PUBLIC_DATABASE_NEON_URL,
+    url: process.env.DATABASE_URL, // Use the value from the .env file
   },
 });
