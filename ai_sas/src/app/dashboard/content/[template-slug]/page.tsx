@@ -15,6 +15,7 @@ import moment from 'moment';
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { useRouter } from "next/navigation";
 import { UserSubscriptionContext } from "@/app/(context)/UserSubscription";
+import { UpdateUsageContext } from "@/app/(context)/UpdatUsageContext";
 
 interface PROPS{
     params:{
@@ -30,11 +31,13 @@ export default function CreateContend(props:PROPS){
     const {wordsUsed,setwordUsed} = useContext<any>(TotalUsageContext); // Words used
     const [showPopup, setShowPopup] = useState(false);
     const {userSubscription,setUserSubscription} = useContext<any>(UserSubscriptionContext)
+    const {updateUsage,setupdateUsage} =useContext<any>(UpdateUsageContext)
 
 
 
     const GenerateAicontent = async (FormData: any) => {
-      if(wordsUsed >=10000 && !userSubscription)
+      //  Update limit with subscription 
+      if(wordsUsed >=100000 && userSubscription )
       {
         setShowPopup(true); 
         return;
@@ -48,7 +51,9 @@ export default function CreateContend(props:PROPS){
         // console.log(result.choices[0]?.message?.content || "");
         await SaveInDb(FormData,selectedTemplate?.slug,result.choices[0]?.message?.content || "")
         setLoading(false)
+        setupdateUsage(Date.now());
       };
+
     const handleNavigation = () =>{
       router.push('/dashboard/billing')
     }

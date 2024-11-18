@@ -7,6 +7,7 @@ import { Aioutput, UserSubscription } from "../../../utils/schema";
 import {eq} from 'drizzle-orm';
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { UserSubscriptionContext } from "@/app/(context)/UserSubscription";
+import { UpdateUsageContext } from "@/app/(context)/UpdatUsageContext";
 
 
 interface HISTORY{
@@ -18,11 +19,15 @@ interface HISTORY{
     createdBy:string
 }
 export default  function Creditusage () {
-  
-  const totalCredits = 10000; // Total user credits
   const {wordsUsed,setwordUsed} = useContext<any>(TotalUsageContext); // Words used
   const {userSubscription,setUserSubscription} = useContext<any>(UserSubscriptionContext)
+  const {updateUsage,setupdateUsage} =useContext<any>(UpdateUsageContext)
+
   const {user} = useUser();
+
+  useEffect(()=>{
+    getData()
+  },[updateUsage])
   
   
   const getData = async()=>{

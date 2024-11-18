@@ -7,6 +7,7 @@ const groq = new Groq({
 
 export async function Model(FinalAiprompt: string) {
   console.log('FinalAiprompt:', FinalAiprompt); // Debugging log
+  
   const chatCompletion = await groq.chat.completions.create({
     messages: [
       { role: 'system', content: 'You are a helpful assistant.' },
