@@ -1,5 +1,5 @@
 // import { serial } from "drizzle-orm/mysql-core";
-import { boolean, integer, pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
+import { boolean, pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
 
 export const Aioutput = pgTable("aiOutput", {
      id:serial('id').primaryKey(),

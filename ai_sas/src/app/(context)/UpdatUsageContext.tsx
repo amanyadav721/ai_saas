@@ -1,2 +1,2 @@
 import { createContext  } from "react";
-export const  UpdateUsageContext= createContext<any>(0);
+export const  UpdateUsageContext= createContext<boolean>(true);

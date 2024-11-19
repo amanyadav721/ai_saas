@@ -1,3 +1,3 @@
 import { drizzle } from 'drizzle-orm/neon-http';
 
-export const db = drizzle('postgresql://neondb_owner:MifOAry9H8tv@ep-rough-dawn-a510t23t.us-east-2.aws.neon.tech/ai_social_media_saas?sslmode=require');
+export const db = drizzle(process.env.NEXT_PUBLIC_DATABASE_NEON_URL+'?sslmode=require');

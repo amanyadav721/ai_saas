@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server'
 import Razorpay from 'razorpay'
 
-export async function POST(req,res){
+export async function POST(){
  let instnace = new Razorpay({
     key_id:process.env.RAZORPAY_KEY_ID,
     key_secret:process.env.RAZORPAY_SECRET_KEY

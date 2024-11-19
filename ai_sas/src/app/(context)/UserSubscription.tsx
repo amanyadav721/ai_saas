@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const UserSubscriptionContext = createContext<any>(null)
+export const UserSubscriptionContext = createContext<boolean>(false)

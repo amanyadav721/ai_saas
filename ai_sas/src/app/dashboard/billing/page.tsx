@@ -2,7 +2,6 @@
 import { useContext, useState } from "react";
 import styles from "./billing.module.scss";
 import axios from 'axios';
-import Razorpay from "razorpay";
 import {  Loader2Icon } from "lucide-react";
 import { db } from "../../../utils/db";
 import { UserSubscription } from "../../../utils/schema";
@@ -11,8 +10,8 @@ import moment from "moment";
 import { UserSubscriptionContext } from "@/app/(context)/UserSubscription";
 
 export default function Billing() {
-  const [selectedPlan, setSelectedPlan] = useState();
-  const {userSubscription,setUserSubscription} = useContext<any>(UserSubscriptionContext)
+  const [selectedPlan] = useState();
+  const {userSubscription} = useContext<any>(UserSubscriptionContext)
   const [loading,setloading] = useState(false);
   const {user}= useUser();
   const CreateSubscription = () =>{
