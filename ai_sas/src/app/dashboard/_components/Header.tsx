@@ -1,4 +1,4 @@
-import { Search, User2Icon } from "lucide-react";
+import { Search } from "lucide-react";
 import styles from "./main.module.scss"
 import { UserButton } from "@clerk/nextjs";
 

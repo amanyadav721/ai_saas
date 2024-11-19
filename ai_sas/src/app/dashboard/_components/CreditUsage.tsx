@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client"
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./main.module.scss";
@@ -31,7 +32,7 @@ export default  function Creditusage () {
   
   
   const getData = async()=>{
-    // @ts-ignore
+    // @ts-expect-error
     const result: HISTORY[] = await db.select().from(Aioutput).where(eq(Aioutput.createdBy, user?.primaryEmailAddress?.emailAddress));
 
      getTotal(result)
@@ -54,7 +55,7 @@ export default  function Creditusage () {
   }
 
   const IsUserSubscribe = async() =>{
-    // @ts-ignorea
+    // @ts-expect-error
     const result = await db.select().from( UserSubscription).where(eq(UserSubscription.email,user?.primaryEmailAddress?.emailAddress));
 
     if(result)

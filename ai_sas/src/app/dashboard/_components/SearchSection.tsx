@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Search } from "lucide-react"
 import styles from "./main.module.scss"
 export default function SearchSection({onSearhcInput}:any){

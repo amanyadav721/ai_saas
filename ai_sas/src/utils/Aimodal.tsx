@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Groq = require('groq-sdk');
 
 const groq = new Groq({

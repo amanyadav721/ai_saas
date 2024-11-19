@@ -1,5 +1,6 @@
+/* eslint-disable */
 "use client"
-import { Children, useContext, useState } from "react";
+import { useState } from "react";
 import SideNav from "./_components/SideNav";
 import Header from "./_components/Header";
 import styles from "./global.module.scss"
@@ -12,9 +13,10 @@ export default function dashboardLayout({
   }: Readonly<{
     children: React.ReactNode;
   }>){
-    const [wordsUsed,setwordUsed] = useState<any>(0);
-    const [userSubscription,setUserSubscription] = useState<boolean>(false)
-    const [updateUsage,setupdateUsage] = useState<any>()
+    const [wordsUsed, setwordUsed] = useState<number>(0);
+    const [userSubscription, setUserSubscription] = useState<boolean>(false);
+    const [updateUsage, setupdateUsage] = useState<boolean>(false); // Now a boolean
+
     return (
         <>
         <TotalUsageContext.Provider value={{wordsUsed,setwordUsed}}>

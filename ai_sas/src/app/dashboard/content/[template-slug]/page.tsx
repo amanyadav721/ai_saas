@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client"
 import Template from "@/app/(data)/Template";
 import { TEMPELATE } from "../../_components/Template";

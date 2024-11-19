@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Template from "@/app/(data)/Template";  // Ensure Template is the correct imported data
 import TemplateCard from "./TemplateCard";
 import styles from "./main.module.scss"

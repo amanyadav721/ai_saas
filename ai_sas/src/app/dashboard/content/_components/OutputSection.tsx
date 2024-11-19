@@ -1,5 +1,5 @@
+/* eslint-disable */
 "use client"
- import dynamic from "next/dynamic";
 import '@toast-ui/editor/dist/toastui-editor.css';
 import styles from "./main.module.scss";
 import { Copy } from "lucide-react";

@@ -1,3 +1,11 @@
 import { createContext } from "react";
 
-export const UserSubscriptionContext = createContext<boolean>(false)
+interface UserSubscriptionContextType {
+    userSubscription: boolean;
+    setUserSubscription: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const UserSubscriptionContext = createContext<UserSubscriptionContextType>({
+    userSubscription: false,
+    setUserSubscription: () => {},
+});
