@@ -1,4 +1,5 @@
 // /api/create-subscription
+'use client'
 import { NextResponse } from 'next/server'
 import Razorpay from 'razorpay'
 

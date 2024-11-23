@@ -5,6 +5,7 @@ import styles from "./main.module.scss"
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Creditusage from "./CreditUsage";
+import Link from "next/link";
 
 
 export default function SideNav(){
@@ -33,22 +34,28 @@ export default function SideNav(){
     {
       name:'Setting',
       icone:Settings,
-      path:'/dashboard/setting'
+      path:'/dashboard/settings'
     },
   ]
     return (
         <>
         <div className={styles.main}>
+          <Link href={"/"}>
         <div className={styles.logo}>
           <Image src="/logo.svg"  alt = "logo"  width={100} height={100}/>
         </div>
+        </Link>
         <div className={styles.list}>
             {MenuList.map((item, index) => (
         <div key={index}
         className={`${styles.listItem} ${path === item.path ? styles.active : ""}`}
-        > 
+        >
+        <div> 
+        <Link  className={styles.links}  href={item.path}>
           <item.icone />
           <h1>{item.name}</h1>
+        </Link>
+        </div>
         </div>
         ))}
       </div>

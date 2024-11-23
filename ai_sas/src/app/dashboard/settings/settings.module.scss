@@ -1,0 +1,13 @@
+.settings{
+    padding: 5px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .settingsPage{
+        // border:1px solid black;
+        border-radius: 12px;
+        box-shadow:5px 5px 5px 5px rgb(241, 241, 241);
+    }
+}

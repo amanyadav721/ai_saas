@@ -1,0 +1,90 @@
+.mainPage {
+    font-family: "Arial", sans-serif;
+    color: #333;
+    background: linear-gradient(to bottom, #f0f4ff, #d4e2ff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    button{
+      background-color: #4c4c9d;
+      padding: 5px;
+      font-weight: bolder;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0px 5px 0px 5px #383874;
+
+
+    }
+  }
+  
+  .header {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2a2a72;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    color: #4c4c9d;
+  }
+  
+  .carouselSection {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  .carouselTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .carousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 16px;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .carouselItem {
+    flex: 0 0 250px;
+    scroll-snap-align: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+      color: #2a2a72;
+    }
+  
+    p {
+      font-size: 1rem;
+      color: #4c4c9d;
+    }
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
