@@ -14,7 +14,7 @@ export async function Model(FinalAiprompt: string) {
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: FinalAiprompt },  // Make sure FinalAiprompt is a string
     ],
-    model: "llama-3.1-70b-versatile",
+    model: "deepseek-r1-distill-llama-70b",
     temperature: 1,
     top_p: 1,
   });
